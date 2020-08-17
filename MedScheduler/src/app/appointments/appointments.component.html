@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <fieldset>
+    Create a new appointment:<P>
+    
+    Appointment description:
+    <input type="text" placeholder="Appointment description" formControlName="title" maxlenght="50" size=50>
+    
+    <BR>
+    Doctor:
+    <select formControlName="doctorName">
+        <option *ngFor="let x of doctors" [ngValue]="x.name">{{ x.name }}</option>
+    </select>
+
+    <BR>
+    <small *ngIf="form.controls.title.invalid && !form.controls.title.pristine">The title must have at least 5 characters</small>
+    <P>
+    <button [disabled]="form.invalid" (click)="addAppointment()">Add Appointment</button>
+    </fieldset>
+</form>
+
+
+<ul>
+    <B>Your Appointments:</B><P>
+    <li *ngFor="let appointment of appointments">
+      <span *ngIf="appointment.done">OK</span>
+      {{ appointment.id }} -
+      {{ appointment.title }} - 
+      {{ appointment.doctorName }} 
+      <button (click)="removeAppointment(appointment)">Remove</button>
+      <span *ngIf="!appointment.done">
+        <button (click)="markAsDone(appointment)">Done</button>
+      </span>
+    </li>
+</ul>
+  

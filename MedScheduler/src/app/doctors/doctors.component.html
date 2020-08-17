@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+  <fieldset>
+    Create a new doctor:<P>
+      <P>
+
+      Doctor Name:
+      <input type="text" placeholder="Name" formControlName="name" maxlenght="50" size=50>
+      <BR>
+      Doctor expertise:
+      <input type="text" placeholder="Expertise" formControlName="expertise" maxlenght="50" size=50>
+  
+      <P>
+      <small *ngIf="form.controls.name.invalid && !form.controls.name.pristine">The Doctor Name must have at least 5 characters<BR></small>
+      <small *ngIf="form.controls.expertise.invalid && !form.controls.expertise.pristine">The Doctor Expertise must have at least 5 characters<BR></small>
+
+      <button [disabled]="form.invalid" (click)="addDoctor()">Add Appointment</button>
+    </fieldset>
+</form>
+
+
+<ul>
+    <B>Doctor List:</B><P>
+    <li *ngFor="let doctor of doctors">
+      {{ doctor.name }}
+      -
+      {{ doctor.expertise }}
+      <button (click)="removeDoctor(doctor)">Remove</button>
+    </li>
+</ul>
+  
+  

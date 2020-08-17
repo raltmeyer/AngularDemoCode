@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+    <fieldset>
+        Create a new Login:<P>
+      
+        Your Full Name:
+        <input type="text" placeholder="Name" formControlName="name" maxlength="50" size=50>
+        <BR>
+        Login:
+        <input type="text" placeholder="Login" formControlName="login" maxlength="8" size=12>
+        <BR>
+        Password:
+        <input type="text" placeholder="password" formControlName="password" maxlength="8" size=12>
+        <BR>
+                          
+        <BR>
+        <small *ngIf="form.controls.name.invalid && !form.controls.name.pristine">The Name must have at least 5 characters<BR></small>
+        <small *ngIf="form.controls.login.invalid && !form.controls.login.pristine">The title must have between 3 and 8 characters<BR></small>
+        <small *ngIf="form.controls.password.invalid && !form.controls.password.pristine">The title must have between 3 and 8 characters<BR></small>
+
+        <P>
+        <button [disabled]="form.invalid" (click)="addLogin()">Register</button>
+      </fieldset>
+  </form>

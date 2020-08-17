@@ -1,0 +1,18 @@
+body {
+    background: #DDDDDD;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    text-align: center;
+}
+
+ul {
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
